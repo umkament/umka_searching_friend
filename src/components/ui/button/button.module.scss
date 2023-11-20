@@ -30,6 +30,24 @@
 
   font-size: var(--font-size-s);
   background-color: var(--color-dark-300);
+  box-shadow: 0 3px 10px 0 var(--color-dark-900);
+
+  &:active {
+    background-color: var(--color-dark-700);
+  }
+
+  &:hover {
+    background-color: var(--color-dark-300);
+  }
+
+  &:focus {
+    border: 2px solid var(--color-dark-100);
+  }
+
+  &:disabled {
+    background: var(--color-light-900);
+    box-shadow: none;
+  }
 }
 
 .tertiary {
