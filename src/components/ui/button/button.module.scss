@@ -1,52 +1,42 @@
-.button {
-  all: unset;
-
-  cursor: pointer;
-
-  top: 20px;
-
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-
-  padding: 6px 10px;
-
-  font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-m);
-
-  border-radius: 8px;
-
-  &:focus-visible {
-    outline: 6px solid var(--color-info-700);
-  }
-}
+@import 'src/styles/mixins';
 
 .primary {
+  @include buttons;
+
   font-size: var(--font-size-s);
   background-color: var(--color-accent-500);
+  box-shadow: 0 4px 11px 0 var(--color-accent-900);
 }
 
 .secondary {
+  @include buttons;
+
   font-size: var(--font-size-s);
   background-color: var(--color-dark-300);
 }
 
 .tertiary {
+  @include buttons;
+
   font-size: var(--font-size-s);
   color: var(--color-accent-500);
   border: 1px solid var(--color-accent-500);
 }
 
 .link {
+  @include buttons;
+
   font-size: var(--font-size-m);
   color: var(--color-accent-500);
 }
 
 .icon {
+  @include buttons;
 }
 
 .fullWidth {
+  @include buttons;
+
   width: 100%;
   font-size: var(--font-size-s);
 }
