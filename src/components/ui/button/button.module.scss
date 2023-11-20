@@ -4,7 +4,7 @@
   @include buttons;
 
   font-size: var(--font-size-s);
-  background-color: var(--color-accent-500);
+  background: var(--color-accent-500);
   box-shadow: 0 4px 11px 0 var(--color-accent-900);
 
   &:active {
@@ -29,7 +29,7 @@
   @include buttons;
 
   font-size: var(--font-size-s);
-  background-color: var(--color-dark-300);
+  background-color: var(--color-dark-100);
   box-shadow: 0 3px 10px 0 var(--color-dark-900);
 
   &:active {
@@ -53,9 +53,34 @@
 .tertiary {
   @include buttons;
 
+  flex-shrink: 0;
+
   font-size: var(--font-size-s);
   color: var(--color-accent-500);
+
+  background: transparent;
   border: 1px solid var(--color-accent-500);
+  box-shadow: 0 3px 10px 0 var(--color-accent-900);
+
+  &:active {
+    background: var(--color-accent-700);
+    border: 1px solid var(--color-accent-500);
+  }
+
+  &:hover {
+    background: var(--color-dark-300);
+    border: 1px solid var(--color-accent-700);
+  }
+
+  &:focus {
+    outline: 1px solid var(--color-accent-700);
+  }
+
+  &:disabled {
+    background: var(--color-light-900);
+    border: none;
+    box-shadow: none;
+  }
 }
 
 .link {
@@ -63,15 +88,57 @@
 
   font-size: var(--font-size-m);
   color: var(--color-accent-500);
+
+  background: transparent;
+  border: none;
+
+  &:active {
+    color: var(--color-accent-700);
+  }
+
+  &:hover {
+    color: var(--color-accent-100);
+  }
+
+  &:focus {
+    padding: 2px 10px;
+    color: var(--color-accent-500);
+    border-radius: 8px;
+    outline: 2px solid var(--color-accent-100);
+  }
+
+  &:disabled {
+    color: var(--color-dark-300);
+  }
 }
 
 .icon {
   @include buttons;
+
+  box-shadow: 0 3px 10px 0 var(--color-accent-900);
+
+  &:active {
+    background: var(--color-accent-700);
+    border: 1px solid var(--color-accent-500);
+  }
+
+  &:hover {
+    background: var(--color-dark-300);
+    border: 1px solid var(--color-accent-700);
+  }
+
+  &:focus {
+    outline: 1px solid var(--color-accent-700);
+  }
+
+  &:disabled {
+    background: var(--color-light-900);
+    border: none;
+    box-shadow: none;
+  }
 }
 
 .fullWidth {
-  @include buttons;
-
   width: 100%;
   font-size: var(--font-size-s);
 }

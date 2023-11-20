@@ -41,7 +41,7 @@ export const Tertiary: Story = {
     variant: 'tertiary',
   },
 }
-export const Link: Story = {
+export const ButtonAsLink: Story = {
   args: {
     children: 'Tertiary Button',
     disabled: false,
@@ -49,11 +49,11 @@ export const Link: Story = {
   },
 }
 
-export const AsLink: Story = {
+export const LinkAsButton: Story = {
   args: {
     as: 'a',
     children: 'look like a button',
-    href: 'www.google.com',
+    href: '',
     variant: 'primary',
   },
 }
