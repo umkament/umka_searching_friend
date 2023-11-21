@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { Link } from 'react-router-dom'
+
 import { RxCamera } from 'react-icons/rx'
 
 import { Button } from './'
@@ -51,7 +53,7 @@ export const ButtonAsLink: Story = {
 
 export const LinkAsButton: Story = {
   args: {
-    as: 'a',
+    as: Link,
     children: 'look like a button',
     href: '',
     variant: 'primary',

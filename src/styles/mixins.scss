@@ -19,3 +19,8 @@
 
   border-radius: 8px;
 }
+
+@mixin typography() {
+  margin: 0;
+  background: transparent;
+}
