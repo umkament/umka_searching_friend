@@ -1,7 +1,7 @@
 import React, { ComponentPropsWithoutRef } from 'react'
 
 import * as Checkbox from '@radix-ui/react-checkbox'
-import { LiaCheckSolid } from 'react-icons/lia'
+import { PiCheckFatDuotone } from 'react-icons/pi'
 
 import s from './checkbox.module.scss'
 
@@ -31,7 +31,7 @@ export const CheckboxComponent: React.FC<CheckboxProps> = ({
           onCheckedChange={onCheckedHandler}
         >
           <Checkbox.Indicator className={s.indicator}>
-            <LiaCheckSolid className={s.icon} />
+            <PiCheckFatDuotone className={s.icon} />
           </Checkbox.Indicator>
         </Checkbox.Root>
       </div>
