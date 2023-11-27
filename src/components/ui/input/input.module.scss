@@ -1,0 +1,27 @@
+.error {
+}
+
+.label {
+  color: var(--color-dark-100);
+}
+
+.inputWrapper {
+  input {
+    all: unset;
+  }
+
+  &:active {
+  }
+
+  &:disabled {
+  }
+
+  &:focus {
+  }
+
+  &:hover {
+  }
+}
+
+.errorMessage {
+}
