@@ -44,7 +44,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       onEnter && e.key === 'Enter' && onEnter()
     }
 
-    const [showPassword, setShowPassword] = useState(false)
+    /*    const [showPassword, setShowPassword] = useState(false)*/
 
     return (
       <div className={className}>
