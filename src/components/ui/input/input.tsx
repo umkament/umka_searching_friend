@@ -1,6 +1,9 @@
 import { ChangeEvent, ComponentPropsWithoutRef, forwardRef, useState } from 'react'
 
 import { Typography } from '@/components/ui/typography'
+import { FaXmark } from 'react-icons/fa6'
+import { FcSearch } from 'react-icons/fc'
+import { PiEyeClosedDuotone, PiEyeDuotone } from 'react-icons/pi'
 
 import s from './input.module.scss'
 
@@ -16,6 +19,15 @@ export type InputProps = {
   placeholder?: string
   value?: string
 } & ComponentPropsWithoutRef<'input'>
+
+const getType = (type: string, showPassword: boolean) => {
+  if (type === 'password' && showPassword) {
+    return 'text'
+  }
+
+  return type
+}
+
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     {
@@ -27,6 +39,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       onClearClick,
       onEnter,
       placeholder,
+      type = 'text',
       value,
       ...restProps
     },
@@ -35,16 +48,18 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const isError = errorMessage ? s.error : ''
 
     const onChangeValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
-      if (onChangeValue) {
-        onChangeValue(e.currentTarget.value)
-      }
+      onChangeValue?.(e.currentTarget.value)
     }
     // @ts-ignore
     const onPressEnterHandler = (e: KeyboardEvent<HTMLInputElement>) => {
       onEnter && e.key === 'Enter' && onEnter()
     }
 
-    /*    const [showPassword, setShowPassword] = useState(false)*/
+    const cleanTextHandler = () => {
+      onClearClick?.()
+    }
+
+    const [showPassword, setShowPassword] = useState(false)
 
     return (
       <div className={className}>
@@ -52,6 +67,21 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           {label}
         </Typography>
         <div className={s.inputWrapper}>
+          {type === 'search' ? <FcSearch className={s.searchIcon} /> : null}
+          {type === 'password' && (
+            <button
+              className={s.eyeIcon}
+              onClick={() => setShowPassword(!showPassword)}
+              type={'button'}
+            >
+              {showPassword ? <PiEyeDuotone /> : <PiEyeClosedDuotone />}
+            </button>
+          )}
+          {type === 'search' && value && (
+            <button className={s.xMarkIcon} onClick={cleanTextHandler} type={'button'}>
+              <FaXmark />
+            </button>
+          )}
           <input
             className={isError ? isError : s.default}
             disabled={disabled}
@@ -59,7 +89,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             onKeyDown={onPressEnterHandler}
             placeholder={placeholder}
             ref={ref}
+            type={getType(type, showPassword)}
             value={value}
+            {...restProps}
           />
         </div>
         {errorMessage ? <div className={s.errorMessage}>{errorMessage}</div> : null}

@@ -36,3 +36,10 @@ export const InputStoryWithError: Story = {
     type: 'text',
   },
 }
+export const InputStoryWithSearchIcon: Story = {
+  args: {
+    label: 'Search Input',
+    placeholder: 'start to search something',
+    type: 'search',
+  },
+}
