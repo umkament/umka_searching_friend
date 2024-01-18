@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DropDownMenu } from './dropDownMenu'
+import { DropDownItem, DropDownMenu } from './dropDownMenu'
 
 const meta = {
   argTypes: {},

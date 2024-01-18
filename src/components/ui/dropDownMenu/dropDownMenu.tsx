@@ -62,3 +62,17 @@ export const DropDownMenu: React.FC<DropDownMenuProps> = ({
     </DropdownMenuRadix.Root>
   )
 }
+
+type DropDownItemProps = {
+  children?: ReactNode
+}
+export const DropDownItem = ({ children }: DropDownItemProps) => {
+  return (
+    <>
+      <motion.div variants={motionItem}>
+        <DropdownMenuRadix.Item className={s.item}>{children}</DropdownMenuRadix.Item>
+      </motion.div>
+      <DropdownMenuRadix.Separator className={s.separator} />
+    </>
+  )
+}
