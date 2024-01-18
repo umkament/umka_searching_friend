@@ -12,4 +12,29 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const DropDownMenuStory: Story = {}
+export const DropDown: Story = {
+  args: {
+    align: 'start',
+    children: (
+      <>
+        <DropDownItem>
+          <div>
+            <div>Ivan</div>
+            <div>j&johnson@gmail.com</div>
+          </div>
+        </DropDownItem>
+        <DropDownItem>
+          <img alt={'icon'} src={personOutline} />
+          <div>My profile</div>
+        </DropDownItem>
+        <DropDownItem>
+          <img alt={'icon'} src={logOut} />
+          <div>SignOut</div>
+        </DropDownItem>
+      </>
+    ),
+  },
+  render: args => {
+    return <DropDownMenu {...args} />
+  },
+}

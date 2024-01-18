@@ -1,6 +1,28 @@
 import React, { ReactNode } from 'react'
 
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
+import * as DropdownMenuRadix from '@radix-ui/react-dropdown-menu'
+import { motion } from 'framer-motion'
+
+import s from './dropDownMenu.module.scss'
+
+const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.2,
+      staggerChildren: 0.1,
+    },
+  },
+}
+const motionItem = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+  },
+}
 
 export type DropDownMenuProps = {
   aline?: 'center' | 'end' | 'start'
@@ -17,37 +39,26 @@ export const DropDownMenu: React.FC<DropDownMenuProps> = ({
   trigger,
 }) => {
   return (
-    <DropdownMenu.Root onOpenChange={onChange} open={isMenuOpen}>
-      <DropdownMenu.Trigger asChild>
+    <DropdownMenuRadix.Root onOpenChange={onChange} open={isMenuOpen}>
+      <DropdownMenuRadix.Trigger asChild>
         <button aria-label={'custom menu'} className={s.buttonTrigger}>
           {trigger}
         </button>
-      </DropdownMenu.Trigger>
+      </DropdownMenuRadix.Trigger>
 
-      <DropdownMenu.Portal>
-        <DropdownMenu.Content>
-          <DropdownMenu.Label />
-          <DropdownMenu.Item />
-          <DropdownMenu.Group>
-            <DropdownMenu.Item />
-          </DropdownMenu.Group>
-          <DropdownMenu.CheckboxItem>
-            <DropdownMenu.ItemIndicator />
-          </DropdownMenu.CheckboxItem>
-          <DropdownMenu.RadioGroup>
-            <DropdownMenu.RadioItem>
-              <DropdownMenu.ItemIndicator />
-            </DropdownMenu.RadioItem>
-          </DropdownMenu.RadioGroup>
-          <DropdownMenu.Sub>
-            <DropdownMenu.Portal>
-              <DropdownMenu.SubContent />
-            </DropdownMenu.Portal>
-          </DropdownMenu.Sub>
-          <DropdownMenu.Separator />
-          <DropdownMenu.Arrow />
-        </DropdownMenu.Content>
-      </DropdownMenu.Portal>
-    </DropdownMenu.Root>
+      <DropdownMenuRadix.Portal>
+        <DropdownMenuRadix.Content align={aline} className={s.contentWrapper} sideOffset={6}>
+          <motion.div
+            animate={'visible'}
+            className={s.content}
+            initial={'hidden'}
+            variants={container}
+          >
+            {children}
+          </motion.div>
+          <DropdownMenuRadix.Arrow></DropdownMenuRadix.Arrow>
+        </DropdownMenuRadix.Content>
+      </DropdownMenuRadix.Portal>
+    </DropdownMenuRadix.Root>
   )
 }
