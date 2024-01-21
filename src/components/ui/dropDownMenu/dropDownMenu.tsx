@@ -47,7 +47,7 @@ export const DropDownMenu: React.FC<DropDownMenuProps> = ({
       </DropdownMenuRadix.Trigger>
 
       <DropdownMenuRadix.Portal>
-        <DropdownMenuRadix.Content align={aline} className={s.contentWrapper} sideOffset={6}>
+        <DropdownMenuRadix.Content align={aline} className={s.contentWrapper} sideOffset={12}>
           <motion.div
             animate={'visible'}
             className={s.content}
@@ -56,7 +56,9 @@ export const DropDownMenu: React.FC<DropDownMenuProps> = ({
           >
             {children}
           </motion.div>
-          <DropdownMenuRadix.Arrow></DropdownMenuRadix.Arrow>
+          <DropdownMenuRadix.Arrow asChild className={s.arrowWrapper}>
+            <div className={s.arrow} />
+          </DropdownMenuRadix.Arrow>
         </DropdownMenuRadix.Content>
       </DropdownMenuRadix.Portal>
     </DropdownMenuRadix.Root>

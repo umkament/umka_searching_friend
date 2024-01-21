@@ -24,13 +24,13 @@ export const DropDown: Story = {
         <DropDownItem>
           <Avatar />
           <div>
-            <div>Popov</div>
-            <div>popov@gmail.com</div>
+            <div>Popovich</div>
+            <div>popovich@gmail.com</div>
           </div>
         </DropDownItem>
         <DropDownItem>
           <BsPersonCircle />
-          <div>My profile</div>
+          <div>My page</div>
         </DropDownItem>
         <DropDownItem>
           <IoMdLogOut />
