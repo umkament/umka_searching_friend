@@ -16,9 +16,9 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
+// @ts-ignore
 export const DropDown: Story = {
   args: {
-    align: 'start',
     children: (
       <>
         <DropDownItem>
