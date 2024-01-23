@@ -33,12 +33,12 @@ export const usePagination = ({
     const lastPageIndex = count
 
     // отображаем диапазон страниц, которые должны быть видимы вокруг текущей страницы
-    const leftSibLingCount = Math.max(page - siblings, 1)
-    const rightSibLingCount = Math.min(page + siblings, count)
+    const leftSiblingIndex = Math.max(page - siblings, 1)
+    const rightSiblingIndex = Math.min(page + siblings, count)
 
     //когда необходимо отображать левое и правое многоточие
-    const shouldShowLeftDots = leftSibLingCount > 2
-    const shouldShowRightDots = rightSibLingCount < count - 2
+    const shouldShowLeftDots = leftSiblingIndex > 2
+    const shouldShowRightDots = rightSiblingIndex < count - 2
 
     //2
     if (!shouldShowLeftDots && shouldShowRightDots) {
@@ -62,5 +62,5 @@ export const usePagination = ({
 
       return [firstPageIndex, DOTS, ...middleRange, DOTS, lastPageIndex]
     }
-  }, [siblings, page, count]) as PaginationRange
+  }, [siblings, page, count]) as PaginationRangeType
 }
