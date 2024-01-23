@@ -39,5 +39,13 @@ export const usePagination = ({
     //когда необходимо отображать левое и правое многоточие
     const shouldShowLeftDots = leftSibLingCount > 2
     const shouldShowRightDots = rightSibLingCount < count - 2
+
+    //2
+    if (!shouldShowLeftDots && shouldShowRightDots) {
+      const leftItemCount = 3 + 2 * siblings
+      const leftRange = range(1, leftItemCount)
+
+      return [...leftRange, DOTS, count]
+    }
   }, [siblings, page, count])
 }
