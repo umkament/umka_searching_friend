@@ -1,5 +1,5 @@
 //range - функция для создания массива чисел в определенном числовом диапазоне (массив страниц пагинации)
-import { useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 
 const range = (start: number, end: number) => {
   const length = end - start + 1
@@ -63,4 +63,29 @@ export const usePagination = ({
       return [firstPageIndex, DOTS, ...middleRange, DOTS, lastPageIndex]
     }
   }, [siblings, page, count]) as PaginationRangeType
+
+  const lastPage = paginationRange?.[paginationRange.length - 1] ?? 1
+  const isFirstPage = page === 1
+  const isLastPage = page === lastPage
+
+  const handleNextPageClicked = useCallback(() => {
+    onChange(page + 1)
+  }, [page, onChange])
+
+  const handlePreviousPageClicked = useCallback(() => {
+    onChange(page - 1)
+  }, [page, onChange])
+
+  function handleMainPageClicked(pageNumber: number) {
+    return () => onChange(pageNumber)
+  }
+
+  return {
+    handleMainPageClicked,
+    handleNextPageClicked,
+    handlePreviousPageClicked,
+    isFirstPage,
+    isLastPage,
+    paginationRange: paginationRange || [],
+  }
 }
