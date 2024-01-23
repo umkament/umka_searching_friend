@@ -47,5 +47,13 @@ export const usePagination = ({
 
       return [...leftRange, DOTS, count]
     }
+
+    //3
+    if (shouldShowLeftDots && !shouldShowRightDots) {
+      const rightItemCount = 3 + 2 * siblings
+      const rightRange = range(count - rightItemCount + 1, count)
+
+      return [firstPageIndex, DOTS, ...rightRange]
+    }
   }, [siblings, page, count])
 }
