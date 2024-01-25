@@ -1,4 +1,7 @@
-import { usePagination } from '@/components/ui/pagination/usePagination.tsx'
+import s from './pagination.module.scss'
+
+import { MainPaginationButtons, NextButton, PrevButton } from './paginationButtons'
+import { usePagination } from './usePagination'
 
 type PaginationConditionals =
   | {
@@ -16,10 +19,10 @@ export type PaginationProps = {
   className?: string
   count: number
   onChange: (page: number) => void
-  onPerPageChang: (itemPerPage: number) => void
+  onPerPageChang: (itemPerPage: number) => void //функция обратного вызова при изменении количества элементов на странице
   page: number
-  perPage?: null | number
-  perPageOptions?: number[]
+  perPage?: null | number // текущее количество элементов на странице
+  perPageOptions?: number[] //варианты количества элементов на странице
   siblings?: number
 } & PaginationConditionals
 export const Pagination = ({
@@ -41,5 +44,16 @@ export const Pagination = ({
     paginationRange,
   } = usePagination({ count, onChange, page, siblings })
 
-  return <></>
+  //showPerPageSelect определяет, нужно ли отображать выпадающий список или нет
+  const showPerPageSelect = perPage && perPageOptions && onPerPageChang
+
+  return (
+    <div className={`${s.root} ${className}`}>
+      <div className={s.container}>
+        <PrevButton />
+        <MainPaginationButtons />
+        <NextButton />
+      </div>
+    </div>
+  )
 }
