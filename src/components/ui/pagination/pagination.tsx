@@ -50,10 +50,15 @@ export const Pagination = ({
   return (
     <div className={`${s.root} ${className}`}>
       <div className={s.container}>
-        <PrevButton />
-        <MainPaginationButtons />
-        <NextButton />
+        <PrevButton disable={isFirstPage} onClick={handlePreviousPageClicked} />
+        <MainPaginationButtons
+          currentPage={page}
+          onClick={handleMainPageClicked}
+          paginationRange={paginationRange}
+        />
+        <NextButton disable={isLastPage} onClick={handleNextPageClicked} />
       </div>
+      {showPerPageSelect && <input />}
     </div>
   )
 }
