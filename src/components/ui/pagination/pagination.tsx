@@ -1,3 +1,5 @@
+import { usePagination } from '@/components/ui/pagination/usePagination.tsx'
+
 type PaginationConditionals =
   | {
       onPerPageChang: (itemPerPage: number) => void
@@ -30,5 +32,14 @@ export const Pagination = ({
   perPageOptions,
   siblings,
 }: PaginationProps) => {
+  const {
+    handleMainPageClicked,
+    handleNextPageClicked,
+    handlePreviousPageClicked,
+    isFirstPage,
+    isLastPage,
+    paginationRange,
+  } = usePagination({ count, onChange, page, siblings })
+
   return <></>
 }
