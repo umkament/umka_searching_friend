@@ -47,32 +47,27 @@ export const Select = ({
         required
         value={value}
       >
-        <SelectRadixUI.Trigger>
-          <SelectRadixUI.Value />
-          <SelectRadixUI.Icon />
+        <SelectRadixUI.Trigger className={`${s.trigger} ${className}`}>
+          <SelectRadixUI.Value placeholder={placeholder} />
+          <SelectRadixUI.Icon className={s.icon} />
         </SelectRadixUI.Trigger>
 
         <SelectRadixUI.Portal>
-          <SelectRadixUI.Content>
-            <SelectRadixUI.ScrollUpButton />
+          <SelectRadixUI.Content className={s.content} position={'popper'} sideOffset={-1}>
             <SelectRadixUI.Viewport>
-              <SelectRadixUI.Item>
-                <SelectRadixUI.ItemText />
-                <SelectRadixUI.ItemIndicator />
-              </SelectRadixUI.Item>
-
-              <SelectRadixUI.Group>
-                <SelectRadixUI.Label />
-                <SelectRadixUI.Item>
-                  <SelectRadixUI.ItemText />
-                  <SelectRadixUI.ItemIndicator />
-                </SelectRadixUI.Item>
-              </SelectRadixUI.Group>
-
-              <SelectRadixUI.Separator />
+              {selectOptions.map(option => {
+                return (
+                  <SelectRadixUI.Item
+                    className={s.item}
+                    disabled={option.disabled}
+                    key={option.value}
+                    value={option.value}
+                  >
+                    <SelectRadixUI.ItemText>{option.value}</SelectRadixUI.ItemText>
+                  </SelectRadixUI.Item>
+                )
+              })}
             </SelectRadixUI.Viewport>
-            <SelectRadixUI.ScrollDownButton />
-            <SelectRadixUI.Arrow />
           </SelectRadixUI.Content>
         </SelectRadixUI.Portal>
       </SelectRadixUI.Root>
