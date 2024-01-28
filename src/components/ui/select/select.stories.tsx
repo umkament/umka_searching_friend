@@ -18,7 +18,7 @@ type Story = StoryObj<typeof meta>
 export const SelectStory: Story = {
   args: {
     defaultValue: 'Select-box 1',
-    label: 'Select-box',
+    label: 'sample of select',
     placeholder: 'Select-box 1',
     selectOptions: [
       { value: 'Select-box 1' },
@@ -30,6 +30,7 @@ export const SelectStory: Story = {
 export const SelectStoryWithDisabledItem: Story = {
   args: {
     defaultValue: 'Select-box 1',
+    label: 'sample of select with disabled item',
     placeholder: 'Select-box 1',
     selectOptions: [
       { value: 'Select-box 1' },
@@ -43,7 +44,7 @@ export const SelectStoryDisabled: Story = {
   args: {
     defaultValue: 'Select-box 1',
     disabled: true,
-    label: 'Select-box',
+    label: 'sample of disabled select',
     placeholder: 'Select-box 1',
     selectOptions: [
       { value: 'Select-box 1' },
