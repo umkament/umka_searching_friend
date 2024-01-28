@@ -31,7 +31,7 @@ export const Pagination = ({
   onChange,
   onPerPageChang,
   page = 1,
-  perPage = null,
+  perPage = 1,
   perPageOptions,
   siblings,
 }: PaginationProps) => {
