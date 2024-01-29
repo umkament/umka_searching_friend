@@ -1,6 +1,6 @@
 import s from './pagination.module.scss'
 
-import { MainPaginationButtons, NextButton, PrevButton } from './paginationButtons'
+import { MainPaginationButtons, NextButton, PerPageSelect, PrevButton } from './paginationButtons'
 import { usePagination } from './usePagination'
 
 type PaginationConditionals =
@@ -19,7 +19,7 @@ export type PaginationProps = {
   className?: string
   count: number
   onChange: (page: number) => void
-  onPerPageChang: (itemPerPage: number) => void //функция обратного вызова при изменении количества элементов на странице
+  onPerPageChange: (itemPerPage: number) => void //функция обратного вызова при изменении количества элементов на странице
   page: number
   perPage?: null | number // текущее количество элементов на странице
   perPageOptions?: number[] //варианты количества элементов на странице
@@ -29,7 +29,7 @@ export const Pagination = ({
   className,
   count = 10,
   onChange,
-  onPerPageChang,
+  onPerPageChange,
   page = 1,
   perPage = 1,
   perPageOptions,
@@ -45,7 +45,7 @@ export const Pagination = ({
   } = usePagination({ count, onChange, page, siblings })
 
   //showPerPageSelect определяет, нужно ли отображать выпадающий список или нет
-  const showPerPageSelect = perPage && perPageOptions && onPerPageChang
+  const showPerPageSelect = perPage && perPageOptions && onPerPageChange
 
   return (
     <div className={`${s.root} ${className}`}>
@@ -58,7 +58,7 @@ export const Pagination = ({
         />
         <NextButton disable={isLastPage} onClick={handleNextPageClicked} />
       </div>
-      {showPerPageSelect && <input />}
+      {showPerPageSelect && <PerPageSelect {...{ onPerPageChange, perPage, perPageOptions }} />}
     </div>
   )
 }

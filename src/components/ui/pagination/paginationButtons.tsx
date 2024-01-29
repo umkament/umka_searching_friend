@@ -1,3 +1,4 @@
+import { Select } from '@/components/ui/select'
 import { PiArrowFatLineLeftThin, PiArrowFatLineRightThin } from 'react-icons/pi'
 
 import s from './pagination.module.scss'
@@ -52,6 +53,30 @@ export const MainPaginationButtons = ({
   )
 }
 
+export const PerPageSelect = ({ onPerPageChange, perPage, perPageOptions }: PerPageSelectProps) => {
+  const selectOptions = perPageOptions.map(value => ({
+    label: value.toString(),
+    value: value.toString(),
+  }))
+  const selectPerPage = perPage.toString()
+  const onPerPageChangeHandler = (itemPerPage: string) => {
+    onPerPageChange(+itemPerPage)
+  }
+
+  return (
+    <div className={s.selectBox}>
+      show
+      <Select
+        className={s.select}
+        onValueChange={onPerPageChangeHandler}
+        selectOptions={selectOptions}
+        value={selectPerPage}
+      />
+      on page
+    </div>
+  )
+}
+
 type NavigationButtonsProps = {
   disable?: boolean
   onClick: () => void
@@ -65,4 +90,9 @@ type MainPaginationButtonsProps = {
   currentPage: number //номер текущей страницы
   onClick: (pageNumber: number) => void //передает номер страницы при клике на кнопку
   paginationRange: (number | string)[] //массив, состоящий из диапазона страниц (числа и/или многоточия)
+}
+export type PerPageSelectProps = {
+  onPerPageChange: (itemPerPage: number) => void //вызывается при изменении количества элементов на странице
+  perPage: number // количество элементов на странице
+  perPageOptions: number[] // массив с вариантами количества элементов на странице
 }
