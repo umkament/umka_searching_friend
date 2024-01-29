@@ -1,4 +1,4 @@
-import type { Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { useState } from 'react'
 
@@ -11,15 +11,15 @@ const meta = {
 } satisfies Meta<typeof Pagination>
 
 export default meta
-/*type Story = StoryObj<typeof meta>*/
+type Story = StoryObj<typeof meta>
 
-/*export const PaginationStory: Story = {
+export const PaginationStory: Story = {
   args: {
     count: 100,
-    onChange: () => void,
+    onChange: () => {},
     page: 5,
   },
-}*/
+}
 
 export const Default = () => {
   const [page, setPage] = useState(1)
@@ -31,7 +31,7 @@ export const Default = () => {
       <Pagination
         count={TOTAL_PAGES_COUNT}
         onChange={setPage}
-        onPerPageChang={setPerPage}
+        onPerPageChange={setPerPage}
         page={page}
         perPage={perPage}
         perPageOptions={[5, 8, 12, 100]}

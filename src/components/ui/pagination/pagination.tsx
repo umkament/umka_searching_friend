@@ -5,12 +5,12 @@ import { usePagination } from './usePagination'
 
 type PaginationConditionals =
   | {
-      onPerPageChang: (itemPerPage: number) => void
+      onPerPageChange: (itemPerPage: number) => void
       perPage: number
       perPageOptions: number[]
     }
   | {
-      onPerPageChang?: never
+      onPerPageChange?: never
       perPage?: null
       perPageOptions?: never
     }
