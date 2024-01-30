@@ -16,21 +16,27 @@ type Story = StoryObj<typeof meta>
 export const PaginationStory: Story = {
   args: {
     count: 100,
-    onChange: () => {},
+    onPerPageChange: () => {},
     page: 5,
+    perPage: 10,
+    perPageOptions: [10, 20, 30],
   },
 }
 
 export const Default = () => {
   const [page, setPage] = useState(1)
   const [perPage, setPerPage] = useState(8)
-  const TOTAL_PAGES_COUNT = 10
+  const TOTAL_PAGES_COUNT = 100
+
+  const pageChangeHandle = (newPage: number) => {
+    setPage(newPage)
+  }
 
   return (
     <div>
       <Pagination
         count={TOTAL_PAGES_COUNT}
-        onChange={setPage}
+        onChange={pageChangeHandle}
         onPerPageChange={setPerPage}
         page={page}
         perPage={perPage}

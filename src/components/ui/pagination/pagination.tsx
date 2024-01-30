@@ -3,28 +3,6 @@ import s from './pagination.module.scss'
 import { MainPaginationButtons, NextButton, PerPageSelect, PrevButton } from './paginationButtons'
 import { usePagination } from './usePagination'
 
-type PaginationConditionals =
-  | {
-      onPerPageChange: (itemPerPage: number) => void
-      perPage: number
-      perPageOptions: number[]
-    }
-  | {
-      onPerPageChange?: never
-      perPage?: null
-      perPageOptions?: never
-    }
-
-export type PaginationProps = {
-  className?: string
-  count: number
-  onChange: (page: number) => void
-  onPerPageChange: (itemPerPage: number) => void //функция обратного вызова при изменении количества элементов на странице
-  page: number
-  perPage?: null | number // текущее количество элементов на странице
-  perPageOptions?: number[] //варианты количества элементов на странице
-  siblings?: number
-} & PaginationConditionals
 export const Pagination = ({
   className,
   count = 10,
@@ -62,3 +40,26 @@ export const Pagination = ({
     </div>
   )
 }
+
+type PaginationConditionals =
+  | {
+      onPerPageChange: (itemPerPage: number) => void
+      perPage: number
+      perPageOptions: number[]
+    }
+  | {
+      onPerPageChange?: never
+      perPage?: null
+      perPageOptions?: never
+    }
+
+export type PaginationProps = {
+  className?: string
+  count: number
+  onChange: (page: number) => void
+  onPerPageChange: (itemPerPage: number) => void //функция обратного вызова при изменении количества элементов на странице
+  page: number
+  perPage?: null | number // текущее количество элементов на странице
+  perPageOptions?: number[] //варианты количества элементов на странице
+  siblings?: number
+} & PaginationConditionals
