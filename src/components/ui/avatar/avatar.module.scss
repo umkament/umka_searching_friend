@@ -1,0 +1,16 @@
+.avatar {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.avatarWithNameWrapper {
+  cursor: pointer;
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+
+  .name {
+    color: var(--color-dark-100);
+    border-bottom: 2px double var(--color-dark-100);
+  }
+}
