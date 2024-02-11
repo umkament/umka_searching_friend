@@ -1,6 +1,23 @@
-.avatar {
-  object-fit: cover;
-  border-radius: 50%;
+.avatarContainer {
+  position: relative;
+
+  overflow: hidden;
+  display: flex;
+
+  width: 30px; // Ширина контейнера аватара
+  height: 30px; // Высота контейнера аватара
+
+  border-radius: 50%; // Создаем круглую форму контейнера
+  .avatar {
+    cursor: pointer;
+
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    transform: scale(1.15); // изменение масштаба картинки
+
+    object-fit: cover;
+  }
 }
 
 .avatarWithNameWrapper {
