@@ -1,0 +1,24 @@
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 7rem;
+
+  text-decoration: none;
+
+  .errorImg {
+    max-width: 30rem;
+    max-height: 12rem;
+    margin-bottom: 2rem;
+    object-fit: cover;
+  }
+
+  .errorText {
+    margin-bottom: 2rem;
+  }
+
+  .errorLink {
+    text-decoration: none;
+  }
+}
