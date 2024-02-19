@@ -1,16 +1,24 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import {
+  Navigate,
+  Outlet,
+  RouteObject,
+  RouterProvider,
+  createBrowserRouter,
+} from 'react-router-dom'
 
+const privateRoutes: RouteObject[] = [{ element: <div>page</div>, path: '/' }]
+const publicRoutes: RouteObject[] = [{ element: <div>login</div>, path: '/login' }]
 const router = createBrowserRouter([
-  {
-    element: <div>ggggg</div>,
-    path: '/',
-  },
-  {
-    element: <div>login</div>,
-    path: '/login',
-  },
+  { children: privateRoutes, element: <PrivateRoutes /> },
+  ...publicRoutes,
 ])
 
 export const Router = () => {
   return <RouterProvider router={router} />
+}
+
+function PrivateRoutes() {
+  const isAuthenticated = false
+
+  return isAuthenticated ? <Outlet /> : <Navigate to={'/login'} />
 }
