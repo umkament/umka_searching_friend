@@ -6,8 +6,10 @@ import {
   createBrowserRouter,
 } from 'react-router-dom'
 
+import { Layout } from '@/components/layout'
+
 const privateRoutes: RouteObject[] = [
-  { element: <div>page</div>, path: '/' },
+  { element: <Layout />, path: '/' },
   { element: <div> ProfilePage</div>, path: '/my-profile' },
 ]
 const publicRoutes: RouteObject[] = [

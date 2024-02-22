@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 
 import { avatar, logo } from '@/assets'
-import { Avatar } from '@/components/ui/avatar'
 import { AvatarWithName } from '@/components/ui/avatar/avatarWithName'
 import { Button } from '@/components/ui/button'
 import { DropDownItem, DropDownMenu } from '@/components/ui/dropDownMenu'
@@ -13,7 +12,7 @@ import { Typography } from '@/components/ui/typography'
 import s from './layout.module.scss'
 
 export const Layout = () => {
-  const [userData, setUserData] = useState(null)
+  const [userData, setUserData] = useState('1')
   const [menuOpen, setMenuOpen] = useState(false)
 
   const logOutHandler = () => {
@@ -46,15 +45,15 @@ export const Layout = () => {
             trigger={<AvatarWithName avatar={avatar} name={'Umkament'} />}
           >
             <DropDownItem>
-              <Avatar avatar={avatar} />
+              <AvatarWithName avatar={avatar} name={'Umkament'} />
             </DropDownItem>
             <DropDownItem>
-              <Typography as={Link} to={'/my-profile'} variant={'subtitle1'}>
+              <Typography as={Link} className={s.link} to={'/my-profile'} variant={'subtitle1'}>
                 My Page
               </Typography>
             </DropDownItem>
             <DropDownItem>
-              <Button as={Link} className={s.logout} onClick={logOutHandler} to={'/logout'}>
+              <Button as={Link} className={s.link} onClick={logOutHandler} to={'/logout'}>
                 logOut
               </Button>
             </DropDownItem>

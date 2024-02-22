@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { avatar } from '@/assets'
+import { AvatarWithName } from '@/components/ui/avatar/avatarWithName.tsx'
 import { BsPersonCircle } from 'react-icons/bs'
 import { IoMdLogOut } from 'react-icons/io'
 
@@ -39,7 +40,7 @@ export const DropDown: Story = {
         </DropDownItem>
       </>
     ),
-    trigger: <Avatar avatar={avatar} />,
+    trigger: <AvatarWithName avatar={avatar} name={'Umkament'} />,
   },
   render: args => {
     return <DropDownMenu {...args} />
