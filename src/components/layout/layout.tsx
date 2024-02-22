@@ -14,6 +14,16 @@ export const Layout = () => {
   const [userData, setUserData] = useState(null)
   const [menuOpen, setMenuOpen] = useState(false)
 
+  const logOutHandler = () => {
+    // Имитация выхода из системы
+    const fakeLogout = () => new Promise(resolve => setTimeout(resolve, 1000)) // Имитация задержки на 1 секунду
+
+    fakeLogout().then(() => {
+      // Заменяем вывод уведомления на простой console.log, так как мы не имеем реальных данных о пользователе
+      console.log(notification)
+      //toast.success(notification, successOptions); // Вызываем уведомление (закомментировано для замены на console.log)
+    })
+  }
   const menuChangeHandler = (open: boolean) => {
     setMenuOpen(open)
   }
@@ -33,6 +43,11 @@ export const Layout = () => {
           >
             <DropDownItem>
               <Avatar avatar={avatar} />
+            </DropDownItem>
+            <DropDownItem>
+              <Button as={Link} className={s.logout} onClick={logOutHandler} to={'/logout'}>
+                logOut
+              </Button>
             </DropDownItem>
           </DropDownMenu>
         ) : (

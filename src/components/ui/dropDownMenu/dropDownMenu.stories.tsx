@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Avatar } from '@radix-ui/react-avatar'
+import { avatar } from '@/assets'
 import { BsPersonCircle } from 'react-icons/bs'
 import { IoMdLogOut } from 'react-icons/io'
 
+import { Avatar } from '../avatar'
 import { DropDownItem, DropDownMenu } from './dropDownMenu'
 
 const meta = {
@@ -22,7 +23,7 @@ export const DropDown: Story = {
     children: (
       <>
         <DropDownItem>
-          <Avatar />
+          <Avatar avatar={avatar} />
           <div>
             <div>Popovich</div>
             <div>popovich@gmail.com</div>
@@ -38,7 +39,7 @@ export const DropDown: Story = {
         </DropDownItem>
       </>
     ),
-    trigger: <Avatar />,
+    trigger: <Avatar avatar={avatar} />,
   },
   render: args => {
     return <DropDownMenu {...args} />
