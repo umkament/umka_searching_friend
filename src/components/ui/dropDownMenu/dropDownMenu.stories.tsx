@@ -25,8 +25,8 @@ export const DropDown: Story = {
         <DropDownItem>
           <Avatar avatar={avatar} />
           <div>
-            <div>Popovich</div>
-            <div>popovich@gmail.com</div>
+            <div>Umkament</div>
+            <div>umkament@gmail.com</div>
           </div>
         </DropDownItem>
         <DropDownItem>
@@ -35,7 +35,7 @@ export const DropDown: Story = {
         </DropDownItem>
         <DropDownItem>
           <IoMdLogOut />
-          <div>SignOut</div>
+          <div>logOut</div>
         </DropDownItem>
       </>
     ),

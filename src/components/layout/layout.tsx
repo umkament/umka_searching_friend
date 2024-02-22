@@ -1,3 +1,4 @@
+//добавить данные из редакс useAuthMeQuery и т д
 import { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 
@@ -7,6 +8,7 @@ import { AvatarWithName } from '@/components/ui/avatar/avatarWithName'
 import { Button } from '@/components/ui/button'
 import { DropDownItem, DropDownMenu } from '@/components/ui/dropDownMenu'
 import { Header } from '@/components/ui/header'
+import { Typography } from '@/components/ui/typography'
 
 import s from './layout.module.scss'
 
@@ -19,6 +21,8 @@ export const Layout = () => {
     const fakeLogout = () => new Promise(resolve => setTimeout(resolve, 1000)) // Имитация задержки на 1 секунду
 
     fakeLogout().then(() => {
+      const notification = 'Successfully logged out'
+
       // Заменяем вывод уведомления на простой console.log, так как мы не имеем реальных данных о пользователе
       console.log(notification)
       //toast.success(notification, successOptions); // Вызываем уведомление (закомментировано для замены на console.log)
@@ -43,6 +47,11 @@ export const Layout = () => {
           >
             <DropDownItem>
               <Avatar avatar={avatar} />
+            </DropDownItem>
+            <DropDownItem>
+              <Typography as={Link} to={'/my-profile'} variant={'subtitle1'}>
+                My Page
+              </Typography>
             </DropDownItem>
             <DropDownItem>
               <Button as={Link} className={s.logout} onClick={logOutHandler} to={'/logout'}>
