@@ -7,6 +7,8 @@ import {
 } from 'react-router-dom'
 
 import { Layout } from '@/components/layout'
+import { ErrorPage } from '@/pages/error-page'
+import { MainPage } from '@/pages/main-page'
 
 const privateRoutes: RouteObject[] = [
   { element: <Layout />, path: '/' },
@@ -17,6 +19,8 @@ const publicRoutes: RouteObject[] = [
   { element: <div> logoutPage</div>, path: '/logout' },
   { element: <div> forgotPasswordPage</div>, path: '/forgot-password' },
   { element: <div> cardPage</div>, path: '/card/:id' },
+  { element: <ErrorPage />, path: '/error' },
+  { element: <MainPage />, path: '/main' },
 ]
 const router = createBrowserRouter([
   { children: privateRoutes, element: <PrivateRoutes /> },
