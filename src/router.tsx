@@ -11,7 +11,7 @@ import { ErrorPage } from '@/pages/error-page'
 import { MainPage } from '@/pages/main-page'
 
 const privateRoutes: RouteObject[] = [
-  { element: <Layout />, path: '/' },
+  //{ element: <Layout />, path: '/' },
   { element: <div> ProfilePage</div>, path: '/my-profile' },
 ]
 const publicRoutes: RouteObject[] = [
@@ -23,8 +23,17 @@ const publicRoutes: RouteObject[] = [
   { element: <MainPage />, path: '/main' },
 ]
 const router = createBrowserRouter([
-  { children: privateRoutes, element: <PrivateRoutes /> },
-  ...publicRoutes,
+  {
+    children: [
+      ...publicRoutes,
+      { children: privateRoutes, element: <PrivateRoutes /> },
+      {
+        element: <ErrorPage />,
+        path: '*',
+      },
+    ],
+    element: <Layout />,
+  },
 ])
 
 export const Router = () => {
